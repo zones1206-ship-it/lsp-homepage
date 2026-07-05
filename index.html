@@ -111,8 +111,11 @@
   /* ---------- home / hero page ---------- */
   #page-home { position:relative; height:100vh; min-height:700px; align-items:center; overflow:hidden;
     background:
-      repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 44px),
-      repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 44px),
+      radial-gradient(ellipse 640px 520px at 74% 42%, rgba(184,118,58,.12) 0%, transparent 60%),
+      repeating-linear-gradient(98deg, rgba(255,255,255,.045) 0 1.5px, transparent 1.5px 84px),
+      repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 1px, transparent 1px 44px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.03) 0 1px, transparent 1px 44px),
+      radial-gradient(ellipse 900px 400px at 50% 108%, rgba(0,0,0,.55), transparent 65%),
       linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 55%,var(--navy) 100%); }
   #page-home.active { display:flex; }
   .home-inner { position:relative; z-index:2; padding-top:76px; width:100%; display:flex; flex-direction:column; gap:30px; }
@@ -161,19 +164,21 @@
   .hero-title2 { font-size:clamp(34px,4.6vw,58px); line-height:1.1; font-weight:700; color:#fff; text-align:left;
     margin:0 0 14px; letter-spacing:-.02em;
     opacity:0; animation:heroUp .8s ease 4.05s forwards; }
-  .hero-title2 .accent { color:var(--accent); }
+  .hero-title2 .accent { color:var(--accent); text-shadow:0 0 34px rgba(184,118,58,.35); }
   .hero-sub2 { font-size:15.5px; color:#d5e2f2; margin:0 0 10px; font-weight:500; letter-spacing:.01em;
     opacity:0; animation:heroUp .8s ease 4.2s forwards; }
   .hero-sub2 strong { color:#fff; font-weight:700; }
   .hero-desc { font-size:14px; color:#a9bcd6; margin:0 0 24px; font-weight:400; max-width:440px; line-height:1.7;
     opacity:0; animation:heroUp .8s ease 4.3s forwards; }
   .hero-cta { display:flex; gap:12px; margin-bottom:0; opacity:0; animation:heroUp .8s ease 4.4s forwards; }
-  .hero-cta button { font-size:12.5px; font-weight:700; letter-spacing:.04em; padding:12px 20px; border-radius:100px; cursor:pointer;
-    transition:transform .15s, background .15s, border-color .15s; }
-  .hero-cta .btn-primary { background:var(--accent); color:#fff; border:1px solid var(--accent); }
-  .hero-cta .btn-primary:hover { background:#a5692f; transform:translateY(-2px); }
-  .hero-cta .btn-ghost { background:transparent; color:#fff; border:1px solid rgba(255,255,255,.35); }
-  .hero-cta .btn-ghost:hover { border-color:#fff; transform:translateY(-2px); }
+  .hero-cta button { font-size:12.5px; font-weight:700; letter-spacing:.04em; padding:12px 22px; border-radius:100px; cursor:pointer;
+    display:inline-flex; align-items:center; gap:8px; transition:transform .15s, background .15s, border-color .15s, box-shadow .15s; }
+  .hero-cta button .arw { font-size:13px; transition:transform .15s; }
+  .hero-cta button:hover .arw { transform:translateX(3px); }
+  .hero-cta .btn-primary { background:var(--accent); color:#fff; border:1px solid var(--accent); box-shadow:0 8px 24px -10px rgba(184,118,58,.65); }
+  .hero-cta .btn-primary:hover { background:#a5692f; transform:translateY(-2px); box-shadow:0 12px 28px -8px rgba(184,118,58,.8); }
+  .hero-cta .btn-ghost { background:rgba(255,255,255,.04); color:#fff; border:1px solid rgba(255,255,255,.35); }
+  .hero-cta .btn-ghost:hover { border-color:#fff; transform:translateY(-2px); background:rgba(255,255,255,.09); }
 
   /* bottom process timeline */
   .hero-steps-new { display:grid; grid-template-columns:repeat(5,1fr); width:100%; }
@@ -411,8 +416,8 @@
         <p class="hero-sub2">Semiconductor &amp; Display Equipment <strong>Total Solution</strong></p>
         <p class="hero-desc">LSP는 설계부터 제작, 조립, 셋업, CS까지 반도체·디스플레이 장비의 전 과정을 하나의 회사에서 책임지는 토탈 솔루션 기업입니다.</p>
         <div class="hero-cta">
-          <button type="button" class="btn-primary" data-nav="business">VIEW OUR CAPABILITIES</button>
-          <button type="button" class="btn-ghost" data-nav="contact">CONTACT US</button>
+          <button type="button" class="btn-primary" data-nav="business">VIEW OUR CAPABILITIES <span class="arw">&rarr;</span></button>
+          <button type="button" class="btn-ghost" data-nav="contact">CONTACT US <span class="arw">&rarr;</span></button>
         </div>
       </div>
       <div class="hero-right">
@@ -420,9 +425,10 @@
           <svg class="equip-svg" viewBox="0 0 760 320" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
             <defs>
               <linearGradient id="metalGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#6f86a0"/>
-                <stop offset=".5" stop-color="#3d5573"/>
-                <stop offset="1" stop-color="#22344a"/>
+                <stop offset="0" stop-color="#9db3cc"/>
+                <stop offset=".22" stop-color="#6f86a0"/>
+                <stop offset=".55" stop-color="#3d5573"/>
+                <stop offset="1" stop-color="#1c2c40"/>
               </linearGradient>
               <radialGradient id="glowGrad" cx="50%" cy="45%" r="60%">
                 <stop offset="0" stop-color="#b8763a" stop-opacity=".55"/>
@@ -433,6 +439,9 @@
                 <stop offset=".5" stop-color="#b8763a" stop-opacity=".8"/>
                 <stop offset="1" stop-color="#b8763a" stop-opacity="0"/>
               </linearGradient>
+              <filter id="partShadow" x="-40%" y="-40%" width="180%" height="180%">
+                <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#050b14" flood-opacity=".45"/>
+              </filter>
             </defs>
             <g class="eq-ghost-group">
               <rect x="36" y="70" width="150" height="180" rx="8" fill="none" stroke="#7f97b3" stroke-width="1.4"/>
@@ -447,12 +456,12 @@
               <rect x="450" y="290" width="12" height="20" fill="url(#metalGrad)"/>
               <rect x="538" y="290" width="12" height="20" fill="url(#metalGrad)"/>
             </g>
-            <g class="part part-chamber">
+            <g class="part part-chamber" filter="url(#partShadow)">
               <rect x="410" y="118" width="180" height="150" rx="14" fill="url(#metalGrad)" stroke="#b8763a" stroke-width="1" stroke-opacity=".55"/>
               <rect x="428" y="136" width="144" height="4" rx="2" fill="#0f2136" opacity=".4"/>
               <rect x="428" y="150" width="100" height="4" rx="2" fill="#0f2136" opacity=".3"/>
             </g>
-            <g class="part part-head">
+            <g class="part part-head" filter="url(#partShadow)">
               <circle cx="500" cy="96" r="40" fill="url(#metalGrad)" stroke="#b8763a" stroke-width="1" stroke-opacity=".6"/>
               <circle cx="500" cy="96" r="5" fill="#0f2136" opacity=".5"/>
               <circle cx="483" cy="86" r="3" fill="#0f2136" opacity=".4"/>
@@ -460,7 +469,7 @@
               <circle cx="483" cy="106" r="3" fill="#0f2136" opacity=".4"/>
               <circle cx="517" cy="106" r="3" fill="#0f2136" opacity=".4"/>
             </g>
-            <g class="part part-module">
+            <g class="part part-module" filter="url(#partShadow)">
               <rect x="572" y="200" width="80" height="56" rx="8" fill="url(#metalGrad)" stroke="#b8763a" stroke-width="1" stroke-opacity=".55"/>
               <rect x="584" y="214" width="56" height="6" rx="3" fill="#b8763a" opacity=".5"/>
               <rect x="584" y="226" width="36" height="6" rx="3" fill="#b8763a" opacity=".3"/>
