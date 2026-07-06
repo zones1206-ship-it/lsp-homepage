@@ -258,7 +258,7 @@
   .kpi-note { margin-top:9px; color:#50647d; font-size:12.8px; line-height:1.55; font-weight:600; }
   .about-main-card { margin-top:22px; background:rgba(248,251,255,.92); border:1px solid rgba(197,210,226,.78); border-radius:18px; box-shadow:0 22px 56px -42px rgba(20,44,70,.42); padding:34px 36px; }
   .about-info-grid { display:grid; grid-template-columns:minmax(380px,.86fr) minmax(560px,1.14fr); gap:40px; }
-  .about-panel-title { margin:0 0 22px; color:#1674d8; font-family:var(--font-mono); font-size:12px; font-weight:800; letter-spacing:.08em; }
+  .about-panel-title { margin:0 0 22px; color:#0e5fc2; font-family:var(--font-mono); font-size:12px; font-weight:800; letter-spacing:.08em; }
   .info-list { display:flex; flex-direction:column; gap:17px; }
   .info-item { display:grid; grid-template-columns:28px 92px 1fr; gap:12px; align-items:start; }
   .info-item .about-icon { width:24px; height:24px; border-radius:0; background:transparent; color:#1674d8; }
@@ -269,7 +269,7 @@
   .growth-title { margin:0 0 16px; color:#0b2442; font-size:22px; line-height:1.35; font-weight:800; letter-spacing:-.015em; }
   .growth-text { margin:0; color:#344b65; font-size:14.5px; line-height:1.85; font-weight:500; }
   .growth-highlight { position:relative; z-index:0; text-align:center; min-width:0; }
-  .growth-highlight-value { font-family:var(--font-mono); font-size:64px; font-weight:800; line-height:1; letter-spacing:-.02em; color:#ff9142; }
+  .growth-highlight-value { font-family:var(--font-mono); font-size:64px; font-weight:800; line-height:1; letter-spacing:-.02em; color:#e2601c; }
   .growth-highlight-value span { margin-left:4px; font-size:24px; font-weight:700; }
   .growth-highlight-rule { width:26px; height:1px; margin:16px auto; background:rgba(20,44,70,.2); }
   .growth-highlight-label { margin-top:0; color:#142c46; font-size:15px; font-weight:800; letter-spacing:.01em; }
@@ -449,7 +449,7 @@
   .facility-cap { min-height:108px; border:1px solid #d2dfed; border-radius:8px; background:#fff; display:grid; grid-template-columns:86px 1fr; align-items:center; gap:14px; padding:18px 20px; }
   .facility-cap svg { width:54px; height:54px; stroke:#062b68; stroke-width:1.8; fill:none; justify-self:center; }
   .facility-cap h3 { margin:0; color:#061b3c; font-size:19px; line-height:1.35; font-weight:900; letter-spacing:-.025em; }
-  .facility-cap p { margin:8px 0 0; color:#53677f; font-size:14px; line-height:1.45; font-weight:700; }
+  .facility-cap p { margin:8px 0 0; color:#33475f; font-size:14px; line-height:1.5; font-weight:700; }
   .facility-system { margin-top:14px; min-height:90px; border-radius:10px; background:radial-gradient(circle at 78% 0%, rgba(27,135,255,.32), transparent 34%), linear-gradient(110deg,#061d42,#07386d); color:#fff; display:grid; grid-template-columns:92px 280px 1fr; align-items:center; gap:18px; padding:18px 38px; overflow:hidden; }
   .facility-system svg { width:48px; height:48px; stroke:#fff; stroke-width:1.8; fill:none; }
   .facility-system strong { font-family:var(--font-display); font-size:25px; font-weight:900; letter-spacing:-.02em; }
@@ -528,9 +528,9 @@
   .form-intro h3 { margin:0 0 10px; display:flex; align-items:center; gap:10px; font-size:22px; line-height:1.1; font-weight:900; color:#071d3f; }
   .form-intro h3 svg { width:25px; height:25px; stroke:#061d42; fill:none; stroke-width:2; }
   .form-intro p { margin:0; color:#394b66; font-size:14px; font-weight:700; line-height:1.75; }
-  form.cf { display:grid; grid-template-columns:repeat(3,1fr) 288px; gap:10px 12px; align-items:stretch; }
+  form.cf { display:grid; grid-template-columns:repeat(3,1fr) 288px; gap:10px 12px; align-items:stretch; min-width:0; }
   form.cf input, form.cf textarea {
-    border:1px solid #cbd7e6; border-radius:5px; padding:12px 14px; font-size:14px; font-family:inherit; font-weight:700; outline:none; color:#061d42; background:#fff;
+    min-width:0; border:1px solid #cbd7e6; border-radius:5px; padding:12px 14px; font-size:14px; font-family:inherit; font-weight:700; outline:none; color:#061d42; background:#fff;
     transition:border-color .15s, box-shadow .15s;
   }
   form.cf textarea { grid-column:1 / 4; min-height:70px; resize:vertical; }
@@ -538,7 +538,7 @@
   form.cf button { grid-column:4; grid-row:1 / 3; border:none; border-radius:6px; background:#061d42; color:#fff; font-size:18px; font-weight:900; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:40px; transition:background .15s; }
   form.cf button:hover { background:#0b3572; }
   form.cf button span { font-size:30px; line-height:1; font-weight:500; }
-  form.cf .note { grid-column:1 / -1; font-size:12px; color:#5c6e86; min-height:14px; }
+  form.cf .note { grid-column:1 / -1; font-size:12.5px; color:#33475f; font-weight:600; line-height:1.5; min-height:14px; }
   .contact-summary { margin-top:12px; display:grid; grid-template-columns:repeat(4,1fr); background:#fff; border:1px solid #d9e4f1; border-radius:11px; box-shadow:0 12px 28px rgba(16,42,78,.07); overflow:hidden; }
   .contact-summary-item { display:grid; grid-template-columns:58px 1fr; gap:18px; align-items:center; min-height:98px; padding:18px 24px; border-left:1px solid #d9e4f1; }
   .contact-summary-item:first-child { border-left:none; }
