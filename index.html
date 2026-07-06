@@ -265,14 +265,14 @@
   .info-item .about-icon svg { width:21px; height:21px; stroke-width:1.9; }
   .info-key { color:#102d52; font-size:14px; font-weight:800; line-height:1.6; }
   .info-val { color:#253a53; font-size:14px; line-height:1.75; font-weight:600; }
-  .growth-panel { display:grid; grid-template-columns:minmax(280px,.88fr) minmax(320px,1.12fr); gap:30px; align-items:end; border-left:1px solid rgba(197,210,226,.9); padding-left:40px; }
+  .growth-panel { display:grid; grid-template-columns:minmax(280px,.88fr) minmax(320px,1.12fr); gap:30px; align-items:center; border-left:1px solid rgba(197,210,226,.9); padding-left:40px; }
   .growth-title { margin:0 0 16px; color:#0b2442; font-size:22px; line-height:1.35; font-weight:800; letter-spacing:-.015em; }
   .growth-text { margin:0; color:#344b65; font-size:14.5px; line-height:1.85; font-weight:500; }
-  .goal-card { margin-top:22px; display:flex; align-items:center; gap:16px; width:min(100%,310px); padding:18px 20px; border:1px solid #b8d8f8; border-radius:10px; background:linear-gradient(135deg,#fff,#f2f8ff); }
-  .goal-card .about-icon { width:48px; height:48px; background:#e6f4ff; }
-  .goal-label { color:#254767; font-size:13px; font-weight:800; }
-  .goal-value { margin-top:4px; color:#082750; font-family:var(--font-mono); font-size:26px; line-height:1; font-weight:800; }
-  .chart-box { height:280px; padding:20px 22px 8px 12px; min-width:0; }
+  .growth-highlight { position:relative; z-index:0; text-align:center; min-width:0; }
+  .growth-highlight-value { font-family:var(--font-mono); font-size:64px; font-weight:800; line-height:1; letter-spacing:-.02em; color:#ff9142; }
+  .growth-highlight-value span { margin-left:4px; font-size:24px; font-weight:700; }
+  .growth-highlight-rule { width:26px; height:1px; margin:16px auto; background:rgba(20,44,70,.2); }
+  .growth-highlight-label { margin-top:0; color:#142c46; font-size:15px; font-weight:800; letter-spacing:.01em; }
   .about-strengths { margin-top:20px; background:
     radial-gradient(circle at 18% 0%,rgba(73,186,255,.22),transparent 36%),
     linear-gradient(135deg,#020914,#092441 58%,#04111f); color:#fff; border-radius:14px; display:grid; grid-template-columns:repeat(4,1fr); overflow:hidden; box-shadow:0 24px 54px -36px rgba(4,19,38,.7); }
@@ -665,7 +665,9 @@
     .about-main-card { padding:26px 20px; border-radius:16px; }
     .info-item { grid-template-columns:24px 78px 1fr; gap:10px; }
     .info-key, .info-val { font-size:13px; }
-    .chart-box { height:240px; }
+    .growth-highlight-value { font-size:44px; }
+    .growth-highlight-value span { font-size:18px; }
+    .growth-highlight-label { font-size:13px; }
     .about-strengths { grid-template-columns:1fr; }
     .strength-item + .strength-item { border-left:none; border-top:1px solid rgba(255,255,255,.22); }
     .strength-item { grid-template-columns:48px 1fr; padding:26px 24px; }
@@ -911,12 +913,12 @@
             <h4 class="growth-title">지속적인 성장과<br>제조 역량 확대</h4>
             <p class="growth-text">2022년 33억원에서 2024년 46.5억원으로 성장하였으며,
             설비 증설과 장비사업 확대를 기반으로 2026년 90억원을 목표로 하고 있습니다.</p>
-            <div class="goal-card">
-              <div class="about-icon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-8"/><path d="M14 7h6v6"/></svg></div>
-              <div><div class="goal-label">2026년 매출 목표</div><div class="goal-value">90억원</div></div>
-            </div>
           </div>
-          <div class="chart-box"><canvas id="growthChart"></canvas></div>
+          <div class="growth-highlight" aria-label="2026년 매출 목표 90억원">
+            <div class="growth-highlight-value">90<span>억</span></div>
+            <div class="growth-highlight-rule" aria-hidden="true"></div>
+            <div class="growth-highlight-label">2026년 매출 목표</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1333,7 +1335,6 @@
     site.style.display = 'block';
     try { localStorage.setItem('lsp_preview_unlocked', '1'); } catch(e) {}
     initNav();
-    initChart();
   }
 
   try {
@@ -1384,32 +1385,6 @@
     });
   }
 
-  function initChart() {
-    var ctx = document.getElementById('growthChart');
-    if (!ctx || !window.Chart) return;
-    if (window.Chart.defaults) {
-      window.Chart.defaults.font.family = "'IBM Plex Mono', 'IBM Plex Sans KR', sans-serif";
-    }
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['2022', '2023', '2024', "2025(E)", "2026(E)"],
-        datasets: [{
-          label: '매출 (억원)',
-          data: [33, 35, 46.5, 60, 90],
-          backgroundColor: ['#c7d6ea','#a9c9ee','#2f93f4','#1674d8','#b8763a'],
-          borderRadius: 6,
-          maxBarThickness: 56
-        }]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        layout: { padding: { left: 4, right: 24, top: 6, bottom: 4 } },
-        plugins: { legend: { display:false }, tooltip: { backgroundColor:'#142c46', padding:10, cornerRadius:8, callbacks: { label: function(c) { return c.parsed.y.toLocaleString() + ' 억원'; } } } },
-        scales: { y: { grid: { color:'#eef1f8' }, ticks: { callback:function(v) { return v.toLocaleString(); } } }, x: { grid: { display:false }, ticks: { padding: 8 } } }
-      }
-    });
-  }
 })();
 </script>
 
