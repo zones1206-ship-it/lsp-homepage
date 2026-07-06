@@ -93,7 +93,7 @@
   .brand-sub { font-family:var(--font-display); font-size:13px; font-weight:600; opacity:.88; letter-spacing:0; }
   header.nav.dark .brand-mark { width:38px; height:38px; }
   .brand-mark-img { object-fit:contain; }
-  header.nav.dark .brand-mark-img, header.nav:not(.solid) .brand-mark-img { filter:invert(1) brightness(2.2) drop-shadow(0 1px 2px rgba(0,0,0,.48)); }
+  header.nav.dark .brand-mark-img, header.nav:not(.solid) .brand-mark-img { filter:drop-shadow(0 1px 2px rgba(0,0,0,.48)); }
   header.nav.dark .brand-main { font-size:29px; font-weight:900; letter-spacing:0; }
   header.nav.dark .brand-sub { font-size:14px; font-weight:700; opacity:.96; }
   header.nav:not(.solid) .brand-main,
@@ -770,7 +770,7 @@
 <header class="nav" id="topNav">
   <div class="wrap navrow">
     <div class="brand" data-nav="home" aria-label="LSP Co., Ltd. home">
-      <img class="brand-mark brand-mark-img" src="assets/lsp-emblem.png" alt="" aria-hidden="true">
+      <img class="brand-mark brand-mark-img" src="assets/lsp-emblem-white.png" alt="" aria-hidden="true">
       <span class="brand-word"><span class="brand-main">LSP</span><span class="brand-sub">CO., Ltd</span></span>
     </div>
     <nav class="links">
@@ -984,7 +984,7 @@
             <div class="business-head-text"><div class="card-icon"><img src="assets/ref-biz-cardico-01.png" alt="" style="transform: scale(1.55);"></div><h3>반도체 설비</h3><div class="en">Semiconductor Equipment</div></div>
           </div>
           <div class="biz-image"><img src="assets/ref-biz-card-01.png" alt="반도체 설비"></div>
-          <ul><li>PECVD · WET 공정 장비 모듈</li><li>Chamber · Gasbox · Showerhead 유닛</li><li>고객 사양 기반 장비 통합 제작</li></ul>
+          <ul><li>PECVD · WET 공정 장비 모듈</li><li>Chamber · Gasbox · Showerhead Unit</li><li>고객 사양 기반 장비 통합 제작</li></ul>
         </div>
         <div class="business-card">
           <div class="business-card-head">
@@ -1154,7 +1154,7 @@
         <div class="facility-thumbs">
           <div class="facility-thumb"><img src="assets/facility-thumb-m1.jpg" alt="사무실 외부 전경"><span>외부 전경</span></div>
           <div class="facility-thumb"><img src="assets/facility-thumb-meeting.jpg" alt="회의실"><span>회의실</span></div>
-          <div class="facility-thumb"><img src="assets/facility-thumb-office.jpg" alt="업무 공간"><span>업무 공간</span></div>
+          <div class="facility-thumb"><img src="assets/facility-thumb-office.jpg" alt="휴식 공간"><span>업무 공간</span></div>
           <div class="facility-thumb"><img src="assets/facility-thumb-lounge.jpg" alt="라운지 리셉션"><span>라운지 / 리셉션</span></div>
         </div>
       </div>
@@ -1162,8 +1162,8 @@
         <div class="facility-panel-title">연구소</div>
         <div class="facility-thumbs">
           <div class="facility-thumb"><img src="assets/facility-thumb-m5.jpg" alt="연구소 외부 전경"><span>외부 전경</span></div>
-          <div class="facility-thumb"><img src="assets/facility-thumb-lab.jpg" alt="연구실"><span>연구실</span></div>
-          <div class="facility-thumb"><img src="assets/facility-thumb-measure.jpg" alt="측정실"><span>측정실</span></div>
+          <div class="facility-thumb"><img src="assets/facility-thumb-lab.jpg" alt="측정실"><span>연구실</span></div>
+          <div class="facility-thumb"><img src="assets/facility-thumb-measure.jpg" alt="연구실"><span>측정실</span></div>
           <div class="facility-thumb"><img src="assets/facility-thumb-rest.jpg" alt="휴게 공간"><span>휴게 공간</span></div>
         </div>
       </div>
@@ -1361,7 +1361,7 @@
       b.classList.toggle('active', b.getAttribute('data-nav') === name);
     });
     var topNav = document.getElementById('topNav');
-    topNav.classList.toggle('dark', ['business', 'history', 'vision', 'facility', 'clients', 'contact'].includes(name));
+    topNav.classList.toggle('dark', ['about', 'business', 'history', 'vision', 'facility', 'clients', 'contact'].includes(name));
     if (name === 'home') topNav.classList.remove('solid'); else topNav.classList.add('solid');
     window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
     closeMobileMenu();
